@@ -15,3 +15,6 @@ Choose heads or tails, toss the coin, and track your current and high scores.
 ### 4. Retro Styling
 Nostalgic design with pixelated aesthetics, inspired by 8-bit games.
 Vibrant colors, dashed borders, and playful fonts (Press Start 2P).
+
+## Video demo:
+[watch demo](https://github.com/ath34-tech/coinquest/blob/main/images/retroSite.mp4)
