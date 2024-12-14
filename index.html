@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Retro Coin Gallery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🌟 Coinquest 🌟</h1>
+    <p class="tagline">Discover rare coins from around the world!</p>
+  </header>
+  <main>
+    <!-- Coin Gallery Section -->
+    <section id="gallery">
+      <h2>✨ Coin Collection ✨</h2>
+      <div class="gallery-grid">
+        <!-- 16 Coins -->
+        <div class="coin" data-fact="The Brasher Doubloon was made by Ephraim Brasher, a New York City goldsmith and silversmith, in the late 18th Century. The front of the coin shows a state seal with a rising sun, while the reverse shows the American eagle with a shield. The coin is already rare, but certain versions of it have fetched a variety of prices, depending on their specific characteristics.">
+          <img src="./images/coin_1.png" alt="Coin 1" class="coin-img">
+          <p class="coin-title">The 1787 Brasher Doubloon</p>
+        </div>
+        <div class="coin" data-fact="The Fugio cent hasn’t set the kind of astronomical records as the first two coins on this list, but it can still be a pricey collectible, and it has an interesting history to it. The Fugio cent, also known as the Franklin cent, after founding father Benjamin Franklin, may have been the first coin circulated in the newly formed United States.">
+            <img src="./images/coin_2.png" alt="Coin 2" class="coin-img">
+            <p class="coin-title">The 1787 Fugio cent</p>
+          </div>
+
+          <div class="coin" data-fact="The 723 Umayyad gold dinar is one of the most prized Islamic coins, and it was struck from gold mined at a location owned by the caliph. The coin bears the marking “mine of the commander of the faithful” and it’s the first Islamic coin to mention a location in Saudi Arabia. About a dozen examples of the coin are in existence, according to experts.">
+            <img src="./images/coin_3.png" alt="Coin 3" class="coin-img">
+            <p class="coin-title">The 723 Umayyad Gold Dinar</p>
+          </div>
+          
+          <div class="coin" data-fact="Another one of the world’s most expensive coins is an oldie and goldie. The 1343 Edward III Florin is just one of three such gold coins known to exist. Two examples are housed in the British Museum in London, both of which were found in the River Tyne in 1857. The third coin was found by a prospector with a metal detector in 2006.">
+            <img src="./images/coin_4.png" alt="Coin 4" class="coin-img">
+            <p class="coin-title">The 1343 Edward III Florin</p>
+          </div>
+
+          <div class="coin" data-fact="While pennies were normally made of copper and nickel, the U.S. needed those metals for war efforts, so the mint started using steel to produce the coin. But it mistakenly still struck a batch of pennies with copper, potentially because blanks remained in the press when the mint began making new steel pennies. Experts estimate that about 40 of these pennies exist, though some say fewer than 20 examples remain.">
+            <img src="./images/coin_5.png" alt="Coin 5" class="coin-img">
+            <p class="coin-title">The 1943 Lincoln Head Copper Penny</p>
+          </div>
+
+          <div class="coin" data-fact="The $1 million Canadian Gold Maple Leaf coin is a novelty coin, if there ever were one, and it tips the scales at a whopping 100 kilograms or about 220 pounds. Only six of the nearly pure gold coins have ever been made, as of December 2022, and each has a face value of $1 million. They were used as a promotional showpiece for the mint’s one-ounce Gold Maple Leaf coins.">
+            <img src="./images/coin_6.png" alt="Coin 6" class="coin-img">
+            <p class="coin-title">The 2007 $1 Million Canadian Gold Maple Leaf</p>
+          </div>
+
+          <div class="coin" data-fact="Morgan silver dollars aren’t especially rare in themselves, but some of the rarer vintages can fetch seriously high prices. Even if you don’t have one of the more obscure versions, the Morgan is just a beautiful item with the solid feel of a well-balanced coin that is 90 percent silver.">
+            <img src="./images/coin_7.png" alt="Coin 7" class="coin-img">
+            <p class="coin-title">Morgan Silver Dollars</p>
+          </div>
+      </div>
+    </section>
+
+    <!-- Interactive Map Section -->
+    <section id="map">
+        <h2>🌎 Explore Coins by Country</h2>
+        <div class="map-container">
+          <img src="./images/map.png" alt="Pixelated Map" usemap="#worldmap" class="map-img">
+          <map name="worldmap">
+        <!-- India -->
+  <area shape="rect" coords="506,207,554,266" alt="India" href="#" data-fact="India: The 1918 King George V silver rupee is a collector's treasure.">
+  <!-- USA -->
+  <area shape="rect" coords="119,119,226,207" alt="USA" href="#" data-fact="USA: The 1909 Lincoln penny is a collector’s dream.">
+  <!-- England -->
+  <area shape="rect" coords="352,155,404,193" alt="England" href="#" data-fact="England: The 1933 penny is one of the rarest British coins.">
+  <!-- China -->
+  <area shape="rect" coords="549,176,637,234" alt="China" href="#" data-fact="China: The Qing dynasty coins are known for their intricate designs.">
+  <!-- Japan -->
+  <area shape="rect" coords="622,93,718,141" alt="Japan" href="#" data-fact="Japan: The 1870 Meiji era yen coin is a prized possession.">
+  <!-- Australia -->
+  <area shape="rect" coords="593,296,691,371" alt="Australia" href="#" data-fact="Australia: The 1930 Australian penny is highly sought after.">
+<!-- russia -->
+<area shape="rect" coords="474,101,637,162" alt="Russia" href="#" data-fact="Russia: Russia's rarest coin is the 1830 Russian Imperial Gold Ruble, known for its intricate design and historical significance.">
+<!-- Africa -->
+<area shape="rect" coords="346,200,457,351" alt="Africa" href="#" data-fact="Africa: Africa's rarest coin is the 1967 South African Gold Krugerrand, the world's first gold bullion coin, which revolutionized gold investment.">
+
+        </map>
+        </div>
+        <p id="map-coin-fact" class="fact-display">Click on a country to learn about its coins!</p>
+      </section>
+      <section id="coin-toss-game">
+        <h2>🪙 Coin Toss Game 🪙</h2>
+        <div class="game-container">
+          <div class="coin-game">🤔</div>
+          <p id="game-message">Choose Heads or Tails and toss the coin!</p>
+          <button id="heads">Heads</button>
+          <button id="tails">Tails</button>
+          <div class="score">
+            <p>Current Score: <span id="current-score">0</span></p>
+            <p class="high-score">High Score: <span id="high-score">0</span></p>
+          </div>
+        </div>
+      </section>
+  </main>
+  <footer>
+    <p>© 2024 Retro Coin Gallery | Built with 💖 and nostalgia</p>
+  </footer>
+  <script src="index.js"></script>
+</body>
+</html>
