@@ -58,6 +58,58 @@ mapFacts.forEach(area => {
 
 // game code
 
+const coins_slider = [
+  { 
+    head: './images/game-coin/10_coin_india.png', 
+    tail: './images/game-coin/10_coin_india_tail.png',
+    fact: 'This is a 10 rupee Indian coin, representing modern India’s economic growth.' 
+  },
+  { 
+    head: './images/game-coin/2_coin_india_head.png', 
+    tail: './images/game-coin/2_coin_india_tail.png',
+    fact: 'This 2 rupee coin from India symbolizes diversity with its design.'
+  },
+  { 
+    head: './images/game-coin/coin_china_head.png', 
+    tail: './images/game-coin/coin_china_tail.png',
+    fact: 'This Chinese coin is known for its intricate traditional motifs.' 
+  },
+  { 
+    head: './images/game-coin/coin_england_head.png', 
+    tail: './images/game-coin/coin_england_tail.png',
+    fact: 'This English coin commemorates a historical milestone in the monarchy.' 
+  },
+  { 
+    head: './images/game-coin/coin_japan_head.png', 
+    tail: './images/game-coin/coin_japan_tail.png',
+    fact: 'This Japanese coin features cherry blossoms, a symbol of peace and renewal.' 
+  }
+];
+
+let currentCoinIndex = 0;
+
+// DOM Elements for Coin Slider
+const coinImage = document.getElementById('coin-image');
+const prevCoinButton = document.getElementById('prev-coin');
+const nextCoinButton = document.getElementById('next-coin');
+
+// Function: Update Coin Image
+function updateCoinImage() {
+  coinImage.src = coins_slider[currentCoinIndex].head;
+}
+
+// Event Listeners for Slider
+prevCoinButton.addEventListener('click', () => {
+  currentCoinIndex = (currentCoinIndex - 1 + coins_slider.length) % coins_slider.length;
+  updateCoinImage();
+});
+
+nextCoinButton.addEventListener('click', () => {
+  currentCoinIndex = (currentCoinIndex + 1) % coins_slider.length;
+  updateCoinImage();
+});
+
+
 let currentScore = 0;
 let highScore = localStorage.getItem('highScore') || 0;
 
@@ -75,11 +127,13 @@ highScoreDisplay.textContent = highScore;
 // Function: Toss Coin
 function tossCoin(userGuess) {
   const outcome = Math.random() < 0.5 ? 'Heads' : 'Tails';
-  const outcomeEmoji = outcome === 'Heads' ? '🪙' : '⚪';
+  const outcomeImage = outcome === 'Heads' ? coins_slider[currentCoinIndex].head : coins_slider[currentCoinIndex].tail;
   
   // Update Coin Display
-  coin.textContent = outcomeEmoji;
-
+  coin.textContent = ''; // Clear emoji
+  coin.style.backgroundImage = `url(${outcomeImage})`;
+  coin.style.backgroundSize = 'contain';
+  coin.style.backgroundRepeat = 'no-repeat';
   // Check User Guess
   if (userGuess === outcome) {
     currentScore++;
@@ -104,6 +158,43 @@ function updateScores() {
 
   highScoreDisplay.textContent = highScore;
 }
+
+
+const sliderPopup = document.createElement('div');
+sliderPopup.id = 'slider-popup';
+sliderPopup.style.position = 'absolute';
+sliderPopup.style.backgroundColor = '#f8f9fa';
+sliderPopup.style.color = '#333';
+sliderPopup.style.border = '1px solid #ccc';
+sliderPopup.style.borderRadius = '5px';
+sliderPopup.style.padding = '8px';
+sliderPopup.style.fontSize = '12px';
+sliderPopup.style.boxShadow = '2px 2px 6px rgba(0, 0, 0, 0.2)';
+sliderPopup.style.opacity = '0';
+sliderPopup.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+sliderPopup.style.pointerEvents = 'none';
+sliderPopup.style.transform = 'scale(0.8)';
+document.body.appendChild(sliderPopup);
+
+// Event Listener for Hovering Over Slider Coin
+coinImage.addEventListener('mouseover', (event) => {
+  const fact = coins_slider[currentCoinIndex].fact;
+  sliderPopup.textContent = fact;
+  sliderPopup.style.opacity = '1';
+  sliderPopup.style.transform = 'scale(1)';
+  sliderPopup.style.left = `${event.pageX + 10}px`;
+  sliderPopup.style.top = `${event.pageY + 10}px`;
+});
+
+coinImage.addEventListener('mousemove', (event) => {
+  sliderPopup.style.left = `${event.pageX + 10}px`;
+  sliderPopup.style.top = `${event.pageY + 10}px`;
+});
+
+coinImage.addEventListener('mouseout', () => {
+  sliderPopup.style.opacity = '0';
+  sliderPopup.style.transform = 'scale(0.8)';
+});
 
 // Event Listeners for Game
 headsButton.addEventListener('click', () => tossCoin('Heads'));
